@@ -1,15 +1,16 @@
 package training.metofficeweather;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import java.awt.*;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.util.ArrayList;
 
 @SpringBootApplication
 public class WeatherApplication {
@@ -23,12 +24,18 @@ public class WeatherApplication {
 				.request(MediaType.TEXT_PLAIN)
 				.get(String.class);
 
-
-		/*System.out.println(locationImport);*/
-		/*Location location = objectMapper.readValue(new URL("http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/sitelist?key=724c591c-bbe6-497f-bbbf-1cd3effa45ee"), Location.class);*/
 		Root location = objectMapper.readValue(locationImport, Root.class);
-		System.out.println(location);
+		/*System.out.println(location);*/
+
+		ArrayList<Location> arrayOfLocations = location.getLocations().getListOfLocations();
+		int i = 0;
+
+		for (Location number : arrayOfLocations){
+		System.out.println(arrayOfLocations.get(i).name + "   " + arrayOfLocations.get(i).id);
+		i++;
+		}
 
 	}
+
 
 }

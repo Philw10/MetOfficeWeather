@@ -14,4 +14,8 @@ public class Root {
                 "locations=" + locations +
                 '}';
     }
+    public Locations getLocations() {
+        return locations;
+    }
+
 }

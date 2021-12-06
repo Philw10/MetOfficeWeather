@@ -4,14 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Location {
-
-    public String elevation;
     public String id;
     public String latitude;
     public String longitude;
     public String name;
     public String region;
     public String unitaryAuthArea;
+    public String elevation;
 
     @Override
     public String toString() {
@@ -25,7 +24,5 @@ public class Location {
                 ", unitaryAuthArea='" + unitaryAuthArea + '\'' +
                 '}';
     }
-    public String getName(){
-        return name;
-    }
+
 }
