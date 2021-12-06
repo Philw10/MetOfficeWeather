@@ -2,6 +2,8 @@ package training.metofficeweather;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.ArrayList;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Location {
     public String id;
@@ -24,5 +26,19 @@ public class Location {
                 ", unitaryAuthArea='" + unitaryAuthArea + '\'' +
                 '}';
     }
-
+    public String searchLocationId(String cityName, ArrayList<Location> location){
+        int i = 0;
+        String locationId = null;
+        for (Location number: location){
+            if (location.get(i).name.equals(cityName)){
+                locationId = location.get(i).id;
+                System.out.println(locationId);
+                break;
+            }else{
+                locationId = "Not found";
+            }
+        i++;
+        }
+        return locationId;
+    }
 }
