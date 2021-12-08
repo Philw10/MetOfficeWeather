@@ -2,6 +2,8 @@ package training.metofficeweather;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -14,9 +16,9 @@ public class WeatherApplication {
 		boolean keepGoing = true;
 		String cityWeather = null;
 		String option;
-		String locationChoice;
 		String locationId;
 		Import imp = new Import();
+		Locations displayWholeLocationList = new Locations();
 		Location locationSearch = new Location();
 		ObjectMapper objectMapper = new ObjectMapper();
 		Scanner choiceOfOutput = new Scanner(System.in);
@@ -32,22 +34,20 @@ public class WeatherApplication {
 			option = choiceOfOutput.nextLine();
 
 			if (option.equals("1")) {
-				int i = 0;
-
-				for (Location number : arrayOfLocations){
-					System.out.println(arrayOfLocations.get(i).name + "   " + arrayOfLocations.get(i).id);
-					i++;
-				}
+				displayWholeLocationList.locationList(arrayOfLocations);
 			} else if (option.equals("2")) {
 				System.out.println("Please enter a location?");
-				locationChoice = choiceOfOutput.nextLine();
-				locationId = locationSearch.searchLocationId(locationChoice, arrayOfLocations);
+				locationId = locationSearch.searchLocationId(choiceOfOutput.nextLine(), arrayOfLocations);
 					if (locationId.equals("Not found")){
 						System.out.println("Location not found.  Please try again");
 						continue;
 					}else {
-						/*cityWeather = imp.importWithLocation(locationId);*/
 						System.out.println(imp.importWithLocation(locationId));
+
+						// Location in JSON SiteRep  DV  Location  Period  Rep
+						/*cityWeather = imp.importWithLocation(locationId);
+						Root weather = objectMapper.readValue(cityWeather, Root.class);
+						System.out.println(weather);*/
 					}
 			}
 		}
