@@ -3,7 +3,7 @@ package training.metofficeweather;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Period {
+public class Rep {
     public String D;
     public String F;
     public String G;

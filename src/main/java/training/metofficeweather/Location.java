@@ -32,7 +32,6 @@ public class Location {
         for (Location number: location){
             if (location.get(i).name.equals(cityName)){
                 locationId = location.get(i).id;
-                System.out.println(locationId);
                 break;
             }else{
                 locationId = "Not found";

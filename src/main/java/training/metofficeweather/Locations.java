@@ -14,17 +14,17 @@ class Locations {
         return locationArray;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "Locations{" +
                 "locations=" + locationArray +
                 '}';
-    }
+    }*/
     public void locationList(ArrayList<Location> arrayOfLocations){
         int i = 0;
 
         for (Location number : arrayOfLocations) {
-            System.out.println(arrayOfLocations.get(i).name + "   " + arrayOfLocations.get(i).id);
+            System.out.println(arrayOfLocations.get(i).name);
             i++;
         }
     }

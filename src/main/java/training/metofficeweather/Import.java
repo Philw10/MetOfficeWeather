@@ -17,7 +17,6 @@ public class Import {
         return locationImport;
     }
     public String importWithLocation(String locationId){
-        System.out.println("http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/" + locationId + "?res=3hourly&key=724c591c-bbe6-497f-bbbf-1cd3effa45ee");
         locationImport = client.target("http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/" + locationId + "?res=3hourly&key=724c591c-bbe6-497f-bbbf-1cd3effa45ee")
                 .request(MediaType.TEXT_PLAIN)
                 .get(String.class);

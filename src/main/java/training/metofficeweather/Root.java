@@ -8,12 +8,12 @@ public class Root {
     @JsonProperty(value="Locations") // For ObjectMapper
     private Locations locations;
 
-    @Override
+    /*@Override
     public String toString() {
         return "Root{" +
                 "locations=" + locations +
                 '}';
-    }
+    }*/
     public Locations getLocations() {
         return locations;
     }
