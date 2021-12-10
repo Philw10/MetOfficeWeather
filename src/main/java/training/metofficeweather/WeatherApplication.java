@@ -1,6 +1,5 @@
 package training.metofficeweather;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.IOException;
@@ -13,11 +12,13 @@ public class WeatherApplication {
 	public static void main(String[] args) throws IOException {
 		/*SpringApplication.run(WeatherApplication.class, args);*/
 		boolean keepGoing = true;
+
+		ObjectMapper objectMapper = new ObjectMapper();
+		Scanner choiceOfOutput = new Scanner(System.in);
+
 		Import bringInJsonAsString = new Import();
 		Locations displayWholeLocationList = new Locations();
 		Location locationSearch = new Location();
-		ObjectMapper objectMapper = new ObjectMapper();
-		Scanner choiceOfOutput = new Scanner(System.in);
 
 		String locationImport = bringInJsonAsString.importWholeList();
 		Root location = objectMapper.readValue(locationImport, Root.class); //JSON route Locations -> Location
@@ -42,7 +43,7 @@ public class WeatherApplication {
 
 						// Location in JSON SiteRep  DV  Location  Period  Rep
 						String cityWeather = bringInJsonAsString.importWithLocation(locationId);
-						Reps weather = objectMapper.readValue(cityWeather, Reps.class);
+						Root weather = objectMapper.readValue(cityWeather, Root.class);
 						System.out.println(weather);
 					}
 			}

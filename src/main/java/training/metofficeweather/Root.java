@@ -5,15 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Root {
-    @JsonProperty(value="Locations") // For ObjectMapper
+    @JsonProperty(value="Locations")
     private Locations locations;
 
-    /*@Override
-    public String toString() {
-        return "Root{" +
-                "locations=" + locations +
-                '}';
-    }*/
     public Locations getLocations() {
         return locations;
     }
