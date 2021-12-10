@@ -17,7 +17,6 @@ public class WeatherApplication {
 		Scanner choiceOfOutput = new Scanner(System.in);
 
 		Import bringInJsonAsString = new Import();
-		Locations displayWholeLocationList = new Locations();
 		Location locationSearch = new Location();
 
 		String locationImport = bringInJsonAsString.importWholeList();
@@ -31,7 +30,7 @@ public class WeatherApplication {
 			String option = choiceOfOutput.nextLine();
 
 			if (option.equals("1")) {
-				displayWholeLocationList.locationList(arrayOfLocations);
+				locationSearch.locationList(arrayOfLocations);
 			} else if (option.equals("2")) {
 				System.out.println("Please enter a location?");
 				String locationId = locationSearch.searchLocationId(choiceOfOutput.nextLine(), arrayOfLocations);
