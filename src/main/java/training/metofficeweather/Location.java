@@ -14,18 +14,6 @@ public class Location {
     public String unitaryAuthArea;
     public String elevation;
 
-    @Override
-    public String toString() {
-        return "Location{" +
-                "elevation='" + elevation + '\'' +
-                ", id='" + id + '\'' +
-                ", latitude='" + latitude + '\'' +
-                ", longitude='" + longitude + '\'' +
-                ", name='" + name + '\'' +
-                ", region='" + region + '\'' +
-                ", unitaryAuthArea='" + unitaryAuthArea + '\'' +
-                '}';
-    }
     public String searchLocationId(String cityName, ArrayList<Location> location){
         int i = 0;
         String locationId = null;
